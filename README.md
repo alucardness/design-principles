@@ -6,32 +6,33 @@ _The following examples are written in php, but can be applied outside_
 
 ## Single Responsibility Principle
 
-<br>
-
-- Single Responsibility Principle (SRP)
-
   <br> 
     
-    It states that a class should have only one reason to change. It applies by separating different concerns into separate classes or components.
+  It states that a class should have only one reason to change. It applies by separating different concerns into separate classes or components.
 
-  ```php
-      class Order
-      {
-          public function createOrder(array $data)
-          {
-            // Create order logic
-
-            // Send email
-            $mailer = new Mailer();
-            $mailer->send($data)
-          }
-      }
-
-      class Mailer()
-      {
-        public function send(array $data)
+  <br/>
+    
+```php
+    class Order
+    {
+        public function createOrder(array $data)
         {
-            // Send email
+          // Create order logic
+
+          // Send email
+          $mailer = new Mailer();
+          $mailer->send($data)
         }
+    }
+
+    class Mailer()
+    {
+      public function send(array $data)
+      {
+          // Send email
       }
-  ```
+    }
+
+```
+
+```
