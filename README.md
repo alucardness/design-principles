@@ -12,7 +12,7 @@ _The following examples are written in php, but can be applied outside_
 
   <br/>
     
-````php
+```php
     class Order
     {
         public function createOrder(array $data)
@@ -33,7 +33,7 @@ _The following examples are written in php, but can be applied outside_
       }
     }
 
-`````
+```
 
 <br/>
 
@@ -46,7 +46,7 @@ In PHP, this principle can be applied using inheritance or interface.
 
 <br/>
 
-````php
+```php
 abstract class Shape
 {
     abstract public function area();
@@ -68,13 +68,14 @@ class Rectangle extends Shape
     }
 }
 
-`````
+```
 
 <br/>
 
 ## Liskov Substitution Principle (LSP)
 
 <br/>
+
 A principle that states objects of a superclass should be able to be replaced with objects of a subclass without affecting the correctness of the program. Subtypes must be suitable for their base types. The subclass should have the same method signatures and contracts as their base class.
 
 <br/>
@@ -105,5 +106,46 @@ class Rectangle implements Shape
 function processShape(Shape $shape)
 {
     return $shape->area();
+}
+```
+
+<br/>
+
+## Interface Segregation Principle (ISP)
+
+A principle that states clients should not be forced to depend on interfaces they do not use. A class should not be forced to implement interfaces it does not use. Use smaller interfaces instead of a single, large one.
+
+<br/>
+
+```php
+interface Flyable
+{
+    public function fly();
+}
+
+interface LaserEye
+{
+    public function blast();
+}
+
+class Superman implements Flyable, LaserEye
+{
+    public function fly()
+    {
+        return 'Superman is flying.';
+    }
+
+    public function blast()
+    {
+        return 'Superman is using laser eyes';
+    }
+}
+
+class Aquaman implements Flyable
+{
+    public function fly()
+    {
+        return 'Aquaman is flying.';
+    }
 }
 ```
