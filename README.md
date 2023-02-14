@@ -6,33 +6,32 @@ _The following examples are written in php, but can be applied outside_
 
 ## Single Responsibility Principle (SRP)
 
-  <br> 
-    
-  It states that a class should have only one reason to change. It applies by separating different concerns into separate classes or components.
+<br> 
 
-  <br/>
+It states that a class should have only one reason to change. It applies by separating different concerns into separate classes or components.
+
+<br/>
     
 ```php
-    class Order
+class Order
+{
+    public function createOrder(array $data)
     {
-        public function createOrder(array $data)
-        {
-          // Create order logic
+        // Create order logic
 
-          // Send email
-          $mailer = new Mailer();
-          $mailer->send($data)
-        }
+        // Send email
+        $mailer = new Mailer();
+        $mailer->send($data)
     }
+}
 
-    class Mailer()
+class Mailer()
+{
+    public function send(array $data)
     {
-      public function send(array $data)
-      {
-          // Send email
-      }
+        // Send email
     }
-
+}
 ```
 
 <br/>
@@ -149,3 +148,55 @@ class Aquaman implements Flyable
     }
 }
 ```
+
+<br/>
+
+## Dependency Inversion Principle (DIP)
+
+<br/>
+
+It states that high-level modules should not depend on low-level modules, but both should depend on abstractions. The implementation details of a class should be abstracted and defined in separate, interchangeable modules.
+
+<br/>
+
+```php
+interface Hero
+{
+    public function attack();
+}
+
+class Superman implements Hero
+{
+    public function attack()
+    {
+        return 'Superman is using heat vision';
+    }
+}
+
+class Batman implements Hero
+{
+    public function attack()
+    {
+        return 'Batman is using batarang';
+    }
+}
+
+class HeroAttack
+{
+    protected $hero;
+
+    public function __construct(Hero $hero)
+    {
+        $this->hero = $hero;
+    }
+
+    public function attack()
+    {
+        return $this->hero->attack();
+    }
+}
+
+$attack = new HeroAttack(new Superman());
+```
+
+### **All of those five principles are called SOLID**
