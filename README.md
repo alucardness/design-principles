@@ -220,3 +220,45 @@ function getFullName($firstName, $lastName)
 
 $fullName = getFullName("Alucard", "Dracula");
 ```
+
+<br/>
+
+## You Aren't Gonna Need It (YAGNI)
+
+<br/>
+
+You should not add functionality until it is necessary. It helps avoid unnecessary complexity, time-consuming design and implementation of features that are not required.
+
+<br/>
+
+We can apply this principle by only implementing the features and functionalities that are currently needed by the application and not implementing ones that may need in the future.
+
+<br/>
+
+```php
+class Order
+{
+    private $items = [];
+
+    public function addItem($item)
+    {
+        $this->items[] = $item;
+    }
+
+    public function getTotal()
+    {
+        $total = 0;
+
+        foreach ($this->items as $item) {
+            $total += $item['price'] ?? 0;
+        }
+
+        return $total;
+    }
+}
+
+$order = new Order();
+$order->addItem(['name' => 'test', 'price' => 10]);
+$order->addItem(['name' => 'test', 'price' => 5]);
+$total = $order->getTotal();
+```
