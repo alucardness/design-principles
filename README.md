@@ -200,3 +200,23 @@ $attack = new HeroAttack(new Superman());
 ```
 
 ### **All of those five principles are called SOLID**
+
+<br/>
+<br/>
+
+## Don't Repeat Yourself (DRY)
+
+<br/>
+
+Principle that states that any piece of knowledge or logic should be written once to avoid duplication and inconsistences.
+
+<br/>
+
+```php
+function getFullName($firstName, $lastName)
+{
+    return "$firstName $lastName";
+}
+
+$fullName = getFullName("Alucard", "Dracula");
+```
