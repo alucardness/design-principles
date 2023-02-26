@@ -262,3 +262,40 @@ $order->addItem(['name' => 'test', 'price' => 10]);
 $order->addItem(['name' => 'test', 'price' => 5]);
 $total = $order->getTotal();
 ```
+
+<br>
+
+## Keep It Simple Stupid (KISS)
+
+<br/>
+
+By adhering to the KISS principle, we can write code that is easier to maintain, debug, and understand. By avoiding unnecessary complexity, we can reduce the likelihood of bugs and make it easier for other developers to work with our code.
+
+<b>Remember to break the logic on simple chunks.</b>
+
+<br>
+
+```php
+$superHeroes = [
+    "Superman",
+    "Batman",
+    "Joker"
+];
+
+$superPowers = [
+    "Heat Vision", 
+    "Laugh", 
+    "Agility"
+];
+
+$batman = extractHero($superHeroes, "Batman");
+
+function extractHero($array, $name)
+{
+    foreach ($array as $hero) {
+        if ($hero === $name) {
+            return $hero;
+        }
+    }
+}
+```
