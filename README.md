@@ -483,3 +483,90 @@ $abilities = [
 ];
 $batman = new Superhero($character, $abilities);
 ```
+
+<br>
+
+## Encapsulate What Varies
+
+<br/>
+
+A principle of hiding implementation details from other parts of the code, and exposing only what is necessary for external use. Make use of access modifiers: `public`, `protected` and `private`.
+
+<br>
+
+```php
+class Superhero
+{
+    protected $name;
+    protected $alias;
+    protected $abilities;
+
+    public function __construct($name, $alias, array $abilities)
+    {
+        $this->name = $name;
+        $this->alias = $alias;
+        $this->abilities = $abilities;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getAlias()
+    {
+        return $this->alias;
+    }
+
+    public function getAbilities()
+    {
+        return implode(', ', $this->abilities);
+    }
+}
+
+class KryptonianSuperhero extends Superhero
+{
+    protected $weakness;
+
+    public function __construct($name, $alias, array $abilities, $weakness)
+    {
+        parent::__construct($name, $alias, $abilities);
+        $this->weakness = $weakness;
+    }
+
+    public function getWeakness()
+    {
+        return $this->weakness;
+    }
+}
+
+class MutantSuperhero extends Superhero
+{
+    protected $power;
+
+    public function __construct($name, $alias, array $abilities, $power)
+    {
+        parent::__construct($name, $alias, $abilities);
+        $this->power = $power;
+    }
+
+    public function getPower()
+    {
+        return $this->power;
+    }
+}
+
+$superman = new KryptonianSuperhero(
+    'Clark Kent',
+    'Superman',
+    ['Flight', 'Super Strength', 'Heat Vision'],
+    'Kryptonite'
+);
+
+$cyclops = new MutantSuperhero(
+    'Scott Summers',
+    'Cyclops',
+    ['Optic Blast', 'Leadership', 'Lover'],
+    'Optic Blast'
+);
+```
