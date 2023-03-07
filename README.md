@@ -389,3 +389,97 @@ $userInfo = $controller->getUserInfo($user);
 ```
 
 <br>
+
+## Composition over Inheritance
+
+<br/>
+
+A principle that suggests combining simple objects into more complex ones and avoiding inheritance of properties and methods from an existing class.
+
+<br>
+
+```php
+class Character
+{
+    protected $name;
+    protected $alias;
+
+    public function __construct($name, $alias)
+    {
+        $this->name = $name;
+        $this->alias = $alias;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getAlias()
+    {
+        return $this->alias;
+    }
+}
+
+class Ability
+{
+    protected $name;
+    protected $description;
+
+    public function __construct($name, $description)
+    {
+        $this->name = $name;
+        $this->description = $description;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+}
+
+class Superhero
+{
+    protected $character;
+    protected $abilities = [];
+
+    public function __construct(Character $character, array $abilities)
+    {
+        $this->character = $character;
+        $this->abilities = $abilities;
+    }
+
+    public function getName()
+    {
+        return $this->character->getName();
+    }
+
+    public function getAlias()
+    {
+        return $this->character->getAlias();
+    }
+
+    public function getAbilities()
+    {
+        $abilities = [];
+        foreach ($this->abilities as $ability) {
+            $abilities[] = $ability->getName();
+        }
+
+        return implode(', ', $abilities);
+    }
+}
+
+$character = new Character('Bruce Wayne', 'Batman');
+$abilities = [
+    new Ability('Agility', 'The ability to be endurant in fights.'),
+    new Ability('Rich', 'The ability to have a lot of money.'),
+    new Ability('Martial Arts', 'The ability to fight in different styles.')
+];
+$batman = new Superhero($character, $abilities);
+```
