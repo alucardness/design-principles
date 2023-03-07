@@ -636,3 +636,65 @@ $superman->addSuperpower(new FlightPower());
 $superman->addSuperpower(new StrengthPower());
 $superman->useSuperpowers();
 ```
+
+<br>
+
+## Program Against Abstractions
+
+<br>
+
+It means that we should write code that is not tied to specific interfaces or classes, but rather to general concepts or behaviors.
+
+The `usePower()` function works with any object that exhibits the desired behavior, without caring about the specific class.
+
+<br>
+
+```php
+interface Superpower
+{
+    public function usePower();
+}
+
+class FlightPower implements Superpower
+{
+    public function usePower()
+    {
+        echo "Flying! \n";
+    }
+}
+
+class Superhero
+{
+    protected $name;
+    protected $alias;
+    protected $superpowers = [];
+
+    public function __construct($name, $alias)
+    {
+        $this->name = $name;
+        $this->alias = $alias;
+    }
+
+    public function addSuperpower(Superpower $power)
+    {
+        $this->superpowers[] = $power;
+    }
+
+    public function useSuperpowers()
+    {
+        echo $this->alias . " using superpowers: \n";
+        foreach ($this->superpowers as $power) {
+            usePower($power);
+        }
+    }
+}
+
+function usePower(Superpower $power)
+{
+    $power->usePower();
+}
+
+$superman = new Superhero('Clark Kent', 'Superman');
+$superman->addSuperpower(new FlightPower());
+$superman->useSuperpowers();
+```
