@@ -570,3 +570,69 @@ $cyclops = new MutantSuperhero(
     'Optic Blast'
 );
 ```
+
+<br>
+
+## Hollywood Principle
+
+<br>
+
+Rather than having low-level components call high-level ones directly, high-level components should define abstract interfaces that low-level components can implement. The high level components can then call the low-level ones through these interfaces.
+
+It's more like <b>"Don't call us, we'll call you."</b>
+
+<br>
+
+```php
+interface Superpower
+{
+    public function usePower();
+}
+
+class FlightPower implements Superpower
+{
+    public function usePower()
+    {
+        echo "Flying! \n";
+    }
+}
+
+class StrengthPower implements Superpower
+{
+    public function usePower()
+    {
+        echo "Lifting heavy objects! \n";
+    }
+}
+
+class Superhero
+{
+    protected $name;
+    protected $alias;
+    protected $superpowers = [];
+
+    public function __construct($name, $alias)
+    {
+        $this->name = $name;
+        $this->alias = $alias;
+    }
+
+    public function addSuperpower(Superpower $power)
+    {
+        $this->superpowers[] = $power;
+    }
+
+    public function useSuperpowers()
+    {
+        echo $this->alias . " using superpowers: \n";
+        foreach ($this->superpowers as $power) {
+            $power->usePower();
+        }
+    }
+}
+
+$superman = new Superhero('Clark Kent', 'Superman');
+$superman->addSuperpower(new FlightPower());
+$superman->addSuperpower(new StrengthPower());
+$superman->useSuperpowers();
+```
