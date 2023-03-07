@@ -299,3 +299,93 @@ function extractHero($array, $name)
     }
 }
 ```
+
+<br>
+
+## Law of Demeter (LoD)
+
+<br/>
+
+A principle that states that an object should have limited knowledge about other objects and should communicate only with its immediate neighbors.
+
+<br>
+<b>Guidelines to follow:</b>
+<ul>
+    <li>Avoid chaining method calls. Chaining methods create dependencies between objects, instead try to use intermediate variables to pass data between objects.</li>
+    <br>
+    <li>Use dependency injection. Don't create objects directly in a class.</li>
+    <br>
+    <li>Use interfaces. They provide a level of abstraction that allows objects to communicate without direct knowledge of each other.</li>
+</ul>
+
+<br>
+
+```php
+class User
+{
+    private $name;
+    private $email;
+    private $address;
+
+    public function __construct($name, $email, $address)
+    {
+        $this->name = $name;
+        $this->email = $email;
+        $this->address = $address;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function getAddress()
+    {
+        return $this->address;
+    }
+}
+
+class Address
+{
+    private $street;
+    private $city;
+    private $state;
+
+    public function __construct($street, $city, $state)
+    {
+        $this->street = $street;
+        $this->city = $city;
+        $this->state = $state;
+    }
+
+    public function getFullAddress()
+    {
+        return $this->street . ', ' . $this->city . ', ' . $this->state;
+    }
+}
+
+class UserController
+{
+    public function getUserInfo(User $user)
+    {
+        $userInfo = [
+            'name' => $user->getName(),
+            'email' => $user->getEmail(),
+            'address' => $user->getAddress()
+        ];
+
+        return $userInfo;
+    }
+}
+
+$user = new User('John Doe', 'mail@test.com', new Address('main street', 'town', 'CA'));
+$controller = new UserController();
+$userInfo = $controller->getUserInfo($user);
+```
+
+<br>
