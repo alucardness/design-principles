@@ -4,6 +4,28 @@ _The following examples are written in php, but can be applied outside_
 
 <br>
 
+### Table of contents:
+
+<br>
+
+<a href="#srp" style="display: block;">Single Responsibility Principle (SRP)</a>
+<a href="#ocp" style="display: block;">Open/Closed Principle (OCP)</a>
+<a href="#lsp" style="display: block;">Liskov Substitution Principle (LSP)</a>
+<a href="#isp" style="display: block;">Interface Segregation Principle (ISP)</a>
+<a href="#dip" style="display: block;">Dependency Inversion Principle (DIP)</a>
+<a href="#dry" style="display: block;">Don't Repeat Yourself (DRY)</a>
+<a href="#yagni" style="display: block;">You Aren't Gonna Need It (YAGNI)</a>
+<a href="#kiss" style="display: block;">Keep It Simple Stupid (KISS)</a>
+<a href="#lod" style="display: block;">Law of Demeter (LoD)</a>
+<a href="#coi" style="display: block;">Composition over Inheritance</a>
+<a href="#ewv" style="display: block;">Encapsulate What Varies</a>
+<a href="#hp" style="display: block;">Hollywood Principle</a>
+<a href="#paa" style="display: block;">Program Against Abstractions</a>
+
+<br>
+
+<div id="srp"></div>
+
 ## Single Responsibility Principle (SRP)
 
 <br> 
@@ -35,6 +57,8 @@ class Mailer()
 ```
 
 <br/>
+
+<div id="ocp"></div>
 
 ## Open/Closed Principle (OCP)
 
@@ -70,6 +94,8 @@ class Rectangle extends Shape
 ```
 
 <br/>
+
+<div id="lsp"></div>
 
 ## Liskov Substitution Principle (LSP)
 
@@ -109,6 +135,8 @@ function processShape(Shape $shape)
 ```
 
 <br/>
+
+<div id="isp"></div>
 
 ## Interface Segregation Principle (ISP)
 
@@ -150,6 +178,8 @@ class Aquaman implements Flyable
 ```
 
 <br/>
+
+<div id="dip"></div>
 
 ## Dependency Inversion Principle (DIP)
 
@@ -204,6 +234,8 @@ $attack = new HeroAttack(new Superman());
 <br/>
 <br/>
 
+<div id="dry"></div>
+
 ## Don't Repeat Yourself (DRY)
 
 <br/>
@@ -222,6 +254,8 @@ $fullName = getFullName("Alucard", "Dracula");
 ```
 
 <br/>
+
+<div id="yagni"></div>
 
 ## You Aren't Gonna Need It (YAGNI)
 
@@ -265,6 +299,8 @@ $total = $order->getTotal();
 
 <br>
 
+<div id="kiss"></div>
+
 ## Keep It Simple Stupid (KISS)
 
 <br/>
@@ -301,6 +337,8 @@ function extractHero($array, $name)
 ```
 
 <br>
+
+<div id="lod"></div>
 
 ## Law of Demeter (LoD)
 
@@ -389,6 +427,8 @@ $userInfo = $controller->getUserInfo($user);
 ```
 
 <br>
+
+<div id="coi"></div>
 
 ## Composition over Inheritance
 
@@ -486,6 +526,8 @@ $batman = new Superhero($character, $abilities);
 
 <br>
 
+<div id="ewv"></div>
+
 ## Encapsulate What Varies
 
 <br/>
@@ -573,6 +615,8 @@ $cyclops = new MutantSuperhero(
 
 <br>
 
+<div id="hp"></div>
+
 ## Hollywood Principle
 
 <br>
@@ -638,6 +682,8 @@ $superman->useSuperpowers();
 ```
 
 <br>
+
+<div id="paa"></div>
 
 ## Program Against Abstractions
 
