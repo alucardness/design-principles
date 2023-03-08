@@ -8,19 +8,31 @@ _The following examples are written in php, but can be applied outside_
 
 <br>
 
-<a href="#srp" style="display: block;">Single Responsibility Principle (SRP)</a>
-<a href="#ocp" style="display: block;">Open/Closed Principle (OCP)</a>
-<a href="#lsp" style="display: block;">Liskov Substitution Principle (LSP)</a>
-<a href="#isp" style="display: block;">Interface Segregation Principle (ISP)</a>
-<a href="#dip" style="display: block;">Dependency Inversion Principle (DIP)</a>
-<a href="#dry" style="display: block;">Don't Repeat Yourself (DRY)</a>
-<a href="#yagni" style="display: block;">You Aren't Gonna Need It (YAGNI)</a>
-<a href="#kiss" style="display: block;">Keep It Simple Stupid (KISS)</a>
-<a href="#lod" style="display: block;">Law of Demeter (LoD)</a>
-<a href="#coi" style="display: block;">Composition over Inheritance</a>
-<a href="#ewv" style="display: block;">Encapsulate What Varies</a>
-<a href="#hp" style="display: block;">Hollywood Principle</a>
-<a href="#paa" style="display: block;">Program Against Abstractions</a>
+<a href="#srp">Single Responsibility Principle (SRP)</a>
+<p>
+<a href="#ocp">Open/Closed Principle (OCP)</a>
+<p>
+<a href="#lsp">Liskov Substitution Principle (LSP)</a>
+<p>
+<a href="#isp">Interface Segregation Principle (ISP)</a>
+<p>
+<a href="#dip">Dependency Inversion Principle (DIP)</a>
+<p>
+<a href="#dry">Don't Repeat Yourself (DRY)</a>
+<p>
+<a href="#yagni">You Aren't Gonna Need It (YAGNI)</a>
+<p>
+<a href="#kiss">Keep It Simple Stupid (KISS)</a>
+<p>
+<a href="#lod">Law of Demeter (LoD)</a>
+<p>
+<a href="#coi">Composition over Inheritance</a>
+<p>
+<a href="#ewv">Encapsulate What Varies</a>
+<p>
+<a href="#hp">Hollywood Principle</a>
+<p>
+<a href="#paa">Program Against Abstractions</a>
 
 <br>
 
